@@ -1,0 +1,17 @@
+{
+  "[poc writer][re] frida hook function": {
+    "scope": "javascript",
+    "prefix": "Interceptor.attach",
+    "body": [
+      "Interceptor.attach( $1, {",
+      "    onEnter: function(args){",
+      "        $2",
+      "    },",
+      "    onLeave: function (retval){",
+      "        $3",
+      "    }",
+      "});"
+    ],
+    "description": "firda hook function address on Enter and Leave template"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "name": "pocwriter",
+  "displayName": "pocwriter",
+  "description": "This is the vscode extension designed for pocwriter.",
+  "version": "0.0.1",
+  "publisher": "Esonhugh",
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/team-su/pocwriter.git"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "categories": [
+    "Snippets"
+  ],
+  "activationEvents": [
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "src/misc.json"
+      },
+      {
+        "language": "python",
+        "path": "src/web/requests.json"
+      },
+      {
+        "language": "javascript",
+        "path": "src/re/frida.json"
+      },
+      {
+        "language": "python",
+        "path": "src/crypto/crypto.json"
+      },
+      {
+        "language": "python",
+        "path": "src/crypto/python.json"
+      },
+      {
+        "language": "python",
+        "path": "src/pwn/interact.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "vscode:publish": "vsce package --no-dependencies",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/http-string-parser": "^0.0.33",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "~20.19.1",
+    "@types/node-fetch": "^2.6.13",
+    "@types/vscode": "^1.101.0",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.5.0",
+    "eslint": "^9.29.0",
+    "ts-loader": "^9.5.2",
+    "ts-morph": "^26.0.0",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "[poc writer][web] import requests with ssl error ignore": {
+    "prefix": "import requests",
+    "body": [
+      "import requests",
+      "requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)"
+    ],
+    "description": "ignore SSL certificate errors in requests library"
+  }
+}

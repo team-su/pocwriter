@@ -1,0 +1,9 @@
+{
+  "[poc writer][crypto] fast pow": {
+    "prefix": "pow",
+    "body": [
+      "$0 = pow($1, e, N)"
+    ],
+    "description": "fast pow calculation"
+  }
+}

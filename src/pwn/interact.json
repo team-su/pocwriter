@@ -1,0 +1,10 @@
+{
+  "[poc writer][pwn] python interactive console in python script": {
+    "prefix": "import code",
+    "body": [
+      "import code",
+      "code.interact(local=locals())"
+    ],
+    "description": "start a python interactive console with current local variables"
+  }
+}
