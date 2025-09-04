@@ -42,6 +42,10 @@
       {
         "language": "python",
         "path": "./src/pwn/interact.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/web/web.json"
       }
     ]
   },
