@@ -1,4 +1,4 @@
-name: Update Friends From Issue
+name: Update Poc from Issue Template
 on:
   issues:
     types: ['opened', 'reopened']
@@ -9,7 +9,7 @@ env:
 permissions: write-all
 
 jobs:
-  update-friends:
+  update-poc:
     # 用于同一仓库下时，配置默认的 GITHUB_TOKEN 的权限，以能够 push 和 pull request
     runs-on: ubuntu-latest
     steps:
