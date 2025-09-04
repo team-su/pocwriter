@@ -20,7 +20,7 @@ body:
         - misc
         - forensics
         - others
-      default: web
+      default: 0
     validations:
       required: true
   - type: input
