@@ -9,18 +9,13 @@
   },
   "license": "MIT",
   "icon": "images/icon.png",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/team-su/pocwriter.git"
-  },
   "extensionKind": [
     "workspace"
   ],
   "categories": [
     "Snippets"
   ],
-  "activationEvents": [
-  ],
+  "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "snippets": [
@@ -30,29 +25,30 @@
       },
       {
         "language": "python",
-        "path": "src/web/requests.json"
+        "path": "./src/web/requests.json"
       },
       {
         "language": "javascript",
-        "path": "src/re/frida.json"
+        "path": "./src/re/frida.json"
       },
       {
         "language": "python",
-        "path": "src/crypto/crypto.json"
+        "path": "./src/crypto/crypto.json"
       },
       {
         "language": "python",
-        "path": "src/crypto/python.json"
+        "path": "./src/crypto/python.json"
       },
       {
         "language": "python",
-        "path": "src/pwn/interact.json"
+        "path": "./src/pwn/interact.json"
       }
     ]
   },
   "scripts": {
+    "issue-helper": "ts-node ./src/helper.ts poc.json",
     "vscode:prepublish": "pnpm run package",
-    "vscode:publish": "vsce package --no-dependencies",
+    "vscode:publish": "vsce package --no-dependencies --allow-missing-repository",
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
@@ -76,6 +72,7 @@
     "eslint": "^9.29.0",
     "ts-loader": "^9.5.2",
     "ts-morph": "^26.0.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1"

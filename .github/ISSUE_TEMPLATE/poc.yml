@@ -1,0 +1,95 @@
+name: New poc contribution request
+description: Creating new poc contribution request issue.
+title: "[POC Snippet Request]"
+labels:
+  - "POC Snippet"
+  - "contribution"
+assignees:
+  - Esonhugh # 这里改成你的GitHub ID
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which category does this snippet belong to?
+      options:
+        - web
+        - pwn
+        - re
+        - crypto
+        - misc
+        - forensics
+        - others
+      default: web
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Tool
+      description: Which tool/framework/library did it use?
+      placeholder: e.g. requests, pwntools, frida ...
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Snippet Name
+      description: Please provide a short name for this snippet.
+      placeholder: e.g. Simple HTTP Request
+    validations:
+      required: true
+  - type: textarea
+    id: body
+    attributes:
+      label: Snippet Content
+      description: Please provide the code snippet here. If your snippet has multiple part unfullfilled, please use $1 $2 ... as placeholder and order by the number.(start from 1, last one is 0)
+      placeholder: |
+        import requests
+        url = "$1"
+        r = requests.get(url, $2)
+        print(r.text)
+        $0
+      render: python
+    validations:
+      required: true
+  - type: input
+    id: description
+    attributes:
+      label: Short Description
+      description: Please provide a short description for this snippet.
+      placeholder: e.g. A simple HTTP request snippet using requests library.
+    validations:
+      required: true
+  - type: input
+    id: prefix
+    attributes:
+      label: Trigger Prefix
+      description: The prefix to trigger this snippet in vscode. (e.g. import requests)
+      placeholder: import requests
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      description: The programming language of this snippet. (e.g. python, javascript, all ...)
+      options:
+        - python
+        - javascript
+        - bash
+        - go
+        - rust
+        - c
+        - cpp
+        - java
+        - php
+        - ruby
+        - all
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: message
+    attributes:
+      label: more detail.

@@ -1,0 +1,61 @@
+name: Update Friends From Issue
+on:
+  issues:
+    types: ['opened', 'reopened']
+
+env:
+  TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+permissions: write-all
+
+jobs:
+  update-friends:
+    # 用于同一仓库下时，配置默认的 GITHUB_TOKEN 的权限，以能够 push 和 pull request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Blog Repo
+        uses: actions/checkout@v2
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/poc.yml # optional but recommended
+
+      - name: Show and copy issue-parser result
+        run: |
+          echo "+++++++ POC JSON +++++++"
+          cat ${HOME}/issue-parser-result.json
+          echo ""
+          echo "++++++++++++++++++++++++"
+          cp ${HOME}/issue-parser-result.json ./poc.json
+
+      - name: pnpm install
+        run: pnpm install
+
+      - name: pnpm issue helper
+        run: pnpm issue-helper && rm ./poc.json
+
+      - name: Create Pull Request
+        # reference: https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          # this GitHub Personal Access Token should have 'repo' scope to the forked repo
+          # or any other way in this link:
+          # https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#workarounds-to-trigger-further-workflow-runs
+          token: ${{ env.TOKEN }}
+          branch: update-poc-from-issue
+          branch-suffix: timestamp
+          title: 'feat: ${{ github.actor }} update poc from issue(auto by bot)'
+          commit-message: 'feat: ${{ github.actor }} update poc from issue(auto by bot)'
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+          delete-branch: true
