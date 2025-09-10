@@ -21,7 +21,7 @@
     "snippets": [
       {
         "language": "python",
-        "path": "src/misc.json"
+        "path": "./src/misc.json"
       },
       {
         "language": "python",
@@ -42,11 +42,24 @@
       {
         "language": "python",
         "path": "./src/pwn/interact.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/misc/threading.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/misc/argsparser.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/misc/python.json"
       }
     ]
   },
   "scripts": {
     "issue-helper": "ts-node ./src/helper.ts poc.json",
+    "check-snippets-contribute": "ts-node ./src/checker.ts",
     "vscode:prepublish": "pnpm run package",
     "vscode:publish": "vsce package --no-dependencies --allow-missing-repository",
     "compile": "webpack",

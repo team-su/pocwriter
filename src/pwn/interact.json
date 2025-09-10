@@ -1,5 +1,6 @@
 {
   "[poc writer][pwn] python interactive console in python script": {
+    "scope": "python",
     "prefix": "import code",
     "body": [
       "import code",

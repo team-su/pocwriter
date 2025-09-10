@@ -1,5 +1,6 @@
 {
   "[poc writer][python] python main function template": {
+    "scope": "python",
     "prefix": "if __name__ == '__main__':",
     "body": [
       "",
@@ -9,7 +10,8 @@
     "description": "python main function template"
   },
   "[poc writer][python] uv init template": {
-    "prefix": "",
+    "scope": "python",
+    "prefix": "# /// script",
     "body": [
       "# /// script",
       "# requires-python = \">=3.10\"",
@@ -28,5 +30,78 @@
       ""
     ],
     "description": "uv init template"
+  },
+  "[poc writer][python] charsets": {
+    "scope": "python",
+    "prefix": "import string",
+    "body": [
+      "import string",
+      "",
+      "# Common character sets",
+      "LOWERCASE = string.ascii_lowercase  # abcdefghijklmnopqrstuvwxyz",
+      "UPPERCASE = string.ascii_uppercase  # ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "DIGITS = string.digits              # 0123456789",
+      "HEXDIGITS = string.hexdigits        # 0123456789abcdef",
+      "PUNCTUATION = string.punctuation    # !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+      "WHITESPACE = string.whitespace      # \\t\\n\\r\\x0b\\x0c ",
+      "",
+      "# Combined character sets",
+      "ALPHABETIC = LOWERCASE + UPPERCASE",
+      "ALPHANUMERIC = ALPHABETIC + DIGITS",
+      "PRINTABLE = string.printable        # All printable characters",
+      "",
+      "charsets = ${1:LOWERCASE + UPPERCASE + DIGITS + HEXDIGITS + PUNCTUATION + WHITESPACE}",
+      ""
+    ],
+    "description": "Common character sets in Python using the string module"
+  },
+  "[poc writer][python] print debug to stderr": {
+    "prefix": "def debug_print(**args, **kwargs):",
+    "body": [
+      "def debug_print(**args, **kwargs):",
+      "    import sys",
+      "    kwargs.setdefault('file', sys.stderr)",
+      "    print(*args, **kwargs)",
+      "    "
+    ],
+    "description": "Prints a debug message with the variable name and value"
+  },
+  "[poc writer][python] brute force string one by one": {
+    "prefix": "def",
+    "body": [
+      "# usage: ",
+      "# def checker(attempt: str) -> bool: ...",
+      "# charset: characters to try",
+      "# guessed: current guessed string",
+      "# max_length: maximum length of the string to guess",
+      "# returns: the guessed string",
+      "#   password = dump_string(checker, charset=string.ascii_hexdigits, max_length=20)",
+      "from typing import Callable",
+      "import string",
+      "def dump_string(checker: Callable[..., bool], charset = string.hexdigits, guessed = \"\", max_length: int = 32) -> str:",
+      "    if globals().get(\"all_char_reject_flag\", False): # fast die if all chars rejected",
+      "        return guessed",
+      "    if len(guessed) >= max_length:",
+      "        return guessed ",
+      "    reject_counts = len(charset)",
+      "    for c in charset:",
+      "        attempt = guessed + c # + \"*\" # Wildcard for SQL LIKE queries or regex ",
+      "        if checker(attempt): # Check if the current attempt is valid",
+      "            print(f\"Found: {c}, current string grows to `{attempt}`\")",
+      "            # If valid, continue to build the string",
+      "            guessed = dump_string(checker, charset, attempt, max_length)",
+      "        else:",
+      "            if globals().get(\"all_char_reject_flag\", False): # fast die if all chars rejected",
+      "                return guessed",
+      "            reject_counts -= 1",
+      "            print(f\"Rejected: {c}, current string remains `{guessed}`\")",
+      "            pass",
+      "    if reject_counts == 0:",
+      "        print(f\"All characters in charset `{charset}` rejected, stopping here.\")",
+      "        globals()[\"all_char_reject_flag\"] = True",
+      "    return guessed",
+      ""
+    ],
+    "description": "Brute force a string one character at a time using a checker function"
   }
 }
