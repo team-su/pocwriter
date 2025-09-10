@@ -1,0 +1,26 @@
+{
+  "[poc writer][misc] python threading template": {
+    "scope": "python",
+    "prefix": "import threading",
+    "body": [
+      "import threading",
+      "",
+      "# Define the function to be executed in each thread",
+      "def $1($2):",
+      "    $3",
+      "    pass",
+      "",
+      "def threading_run():",
+      "    threads = []",
+      "    for i in range($4):",
+      "        t = threading.Thread(target=$1, name='$1-{}'.format(i), args=($5,))",
+      "        threads.append(t)",
+      "        t.start()",
+      "    ",
+      "    # Wait for all threads to complete",
+      "    for t in threads:",
+      "        t.join()"
+    ],
+    "description": "Python threading template with thread creation and joining"
+  }
+}

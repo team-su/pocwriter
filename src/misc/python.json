@@ -1,0 +1,32 @@
+{
+  "[poc writer][python] python main function template": {
+    "prefix": "if __name__ == '__main__':",
+    "body": [
+      "",
+      "if __name__ == '__main__':",
+      "    $0"
+    ],
+    "description": "python main function template"
+  },
+  "[poc writer][python] uv init template": {
+    "prefix": "",
+    "body": [
+      "# /// script",
+      "# requires-python = \">=3.10\"",
+      "# dependencies = [",
+      "#     \"${1:requests}\",",
+      "# ]",
+      "# ///",
+      "",
+      "",
+      "def main() -> None:",
+      "    print(\"Hello from 1.py!\")",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "    main()",
+      ""
+    ],
+    "description": "uv init template"
+  }
+}
