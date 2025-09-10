@@ -1,5 +1,14 @@
 {
-  "[poc writer][python] python main function template": {
+	"[poc writer][misc] python pty console": {
+    "scope": "python",
+		"prefix": "import pty",
+		"body": [
+			"import pty",
+			"pty.spawn(\"/bin/bash\")"
+		],
+		"description": "spawn a pty python console"
+	},
+  "[poc writer][misc] python main function template": {
     "scope": "python",
     "prefix": "if __name__ == '__main__':",
     "body": [
@@ -9,7 +18,7 @@
     ],
     "description": "python main function template"
   },
-  "[poc writer][python] uv init template": {
+  "[poc writer][misc] uv init template": {
     "scope": "python",
     "prefix": "# /// script",
     "body": [

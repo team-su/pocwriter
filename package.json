@@ -29,10 +29,6 @@
       },
       {
         "language": "python",
-        "path": "./src/misc.json"
-      },
-      {
-        "language": "python",
         "path": "./src/misc/argsparser.json"
       },
       {
@@ -60,6 +56,7 @@
   "scripts": {
     "issue-helper": "ts-node ./src/helper.ts poc.json",
     "check-snippets-contribute": "ts-node ./src/checker.ts",
+    "snippets-list": "ts-node ./src/status.ts",
     "vscode:prepublish": "pnpm run package",
     "vscode:publish": "vsce package --no-dependencies --allow-missing-repository",
     "compile": "webpack",
