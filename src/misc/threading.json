@@ -22,5 +22,35 @@
       "        t.join()"
     ],
     "description": "Python threading template with thread creation and joining"
+  },
+  "[poc writer][misc] python threading pool template": {
+    "scope": "python",
+    "prefix": "from concurrent.futures import ThreadPoolExecutor",
+    "body": [
+      "from concurrent.futures import ThreadPoolExecutor, as_completed",
+      "",
+      "# Define the function to be executed in each thread",
+      "def $1($2):",
+      "    $3",
+      "    pass",
+      "",
+      "def threading_pool_run():",
+      "    results = []",
+      "    with ThreadPoolExecutor(max_workers=$4) as executor:",
+      "        for i in range($5):",
+      "            future = executor.submit($1, $6)",
+      "            future_to_task[future] = i",
+      "",
+      "        for future in as_completed(future_to_task):",
+      "            task_id = future_to_task[future]",
+      "            try:",
+      "                result = future.result()",
+      "                results.append(result)",
+      "                $0",
+      "            except Exception as e:",
+      "                print(f'Task {task_id} generated an exception: {e}')",
+      "    return results"
+    ],
+    "description": "Python threading pool template using ThreadPoolExecutor"
   }
 }
