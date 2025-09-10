@@ -1,13 +1,13 @@
 {
-	"[poc writer][misc] python pty console": {
+  "[poc writer][misc] python pty console": {
     "scope": "python",
-		"prefix": "import pty",
-		"body": [
-			"import pty",
-			"pty.spawn(\"/bin/bash\")"
-		],
-		"description": "spawn a pty python console"
-	},
+    "prefix": "import pty",
+    "body": [
+      "import pty",
+      "pty.spawn(\"/bin/bash\")"
+    ],
+    "description": "spawn a pty python console"
+  },
   "[poc writer][misc] python main function template": {
     "scope": "python",
     "prefix": "if __name__ == '__main__':",
@@ -88,27 +88,26 @@
       "from typing import Callable",
       "import string",
       "def dump_string(checker: Callable[..., bool], charset = string.hexdigits, guessed = \"\", max_length: int = 32) -> str:",
-      "    if globals().get(\"all_char_reject_flag\", False): # fast die if all chars rejected",
-      "        return guessed",
       "    if len(guessed) >= max_length:",
       "        return guessed ",
-      "    reject_counts = len(charset)",
+      "    Found = False",
       "    for c in charset:",
+      "        if Found:",
+      "            break",
       "        attempt = guessed + c # + \"*\" # Wildcard for SQL LIKE queries or regex ",
       "        if checker(attempt): # Check if the current attempt is valid",
       "            print(f\"Found: {c}, current string grows to `{attempt}`\")",
       "            # If valid, continue to build the string",
       "            guessed = dump_string(checker, charset, attempt, max_length)",
+      "            Found = True",
       "        else:",
-      "            if globals().get(\"all_char_reject_flag\", False): # fast die if all chars rejected",
-      "                return guessed",
-      "            reject_counts -= 1",
       "            print(f\"Rejected: {c}, current string remains `{guessed}`\")",
       "            pass",
-      "    if reject_counts == 0:",
-      "        print(f\"All characters in charset `{charset}` rejected, stopping here.\")",
-      "        globals()[\"all_char_reject_flag\"] = True",
+      "    if not Found:",
+      "        print(f\"All characters rejected for prefix `{guessed}`\")",
+      "        return guessed",
       "    return guessed",
+      "",
       ""
     ],
     "description": "Brute force a string one character at a time using a checker function"
