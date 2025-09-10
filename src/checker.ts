@@ -67,6 +67,15 @@ async function main(): Promise<number> {
     }
   }
 
+  contributes = contributes.sort((a: any, b: any) => {
+    if (a.path < b.path) {
+      return -1;
+    }
+    if (a.path > b.path) {
+      return 1;
+    }
+    return 0;
+  });
   // fs.writeFileSync("./package.json", JSON.stringify(packageObj, null, 2));
   console.log("Successfully checked all snippet files");
   console.log("final contributes: ", contributes);

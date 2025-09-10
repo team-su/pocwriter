@@ -21,18 +21,6 @@
     "snippets": [
       {
         "language": "python",
-        "path": "./src/misc.json"
-      },
-      {
-        "language": "python",
-        "path": "./src/web/requests.json"
-      },
-      {
-        "language": "javascript",
-        "path": "./src/re/frida.json"
-      },
-      {
-        "language": "python",
         "path": "./src/crypto/crypto.json"
       },
       {
@@ -41,11 +29,7 @@
       },
       {
         "language": "python",
-        "path": "./src/pwn/interact.json"
-      },
-      {
-        "language": "python",
-        "path": "./src/misc/threading.json"
+        "path": "./src/misc.json"
       },
       {
         "language": "python",
@@ -54,6 +38,22 @@
       {
         "language": "python",
         "path": "./src/misc/python.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/misc/threading.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/pwn/interact.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./src/re/frida.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/web/requests.json"
       }
     ]
   },
