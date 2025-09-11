@@ -50,6 +50,10 @@
       {
         "language": "python",
         "path": "./src/web/requests.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/web/socket.json"
       }
     ]
   },

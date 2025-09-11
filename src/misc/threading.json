@@ -52,5 +52,45 @@
       "    return results"
     ],
     "description": "Python threading pool template using ThreadPoolExecutor"
+  },
+  "[poc writer][misc] python threading background service": {
+    "scope": "python",
+    "prefix": "import threading",
+    "body": [
+      "import threading",
+      "import queue",
+      "",
+      "# Define a queue to pass data from the server thread to the main thread",
+      "data_queue = queue.Queue()",
+      "",
+      "def ${1:background_service}(args):",
+      "    # host, port = args",
+      "    # server_address = (host, port)",
+      "    # httpd = ThreadedHTTPServer(server_address, MyHandler)",
+      "    # print(f\"Server started on {host}:{port}\")",
+      "    # httpd.serve_forever()",
+      "    # usage: data_queue.put(\"sample data from server\")",
+      "    pass",
+      "",
+      "def start_${1:background_service}():",
+      "    # Start the HTTP server in a separate thread",
+      "    server_thread = threading.Thread(target=${1:background_service}, args=($2,))",
+      "    server_thread.daemon = False  # Allow the main program to exit even if server thread is running",
+      "    server_thread.start()",
+      "    try:",
+      "        while True:",
+      "            # Check for data in the queue from the server thread",
+      "            if not data_queue.empty():",
+      "                received_data = data_queue.get()",
+      "                print(f\"received data: {received_data}\")",
+      "                ",
+      "                break # exit the loop after processing the data",
+      "                ",
+      "            # You can perform other tasks in the main thread here",
+      "            threading.Event().wait(0.5) # Simulate some work, or wait for 0.5 seconds",
+      "    except KeyboardInterrupt:",
+      "        print(\"Received KeyboardInterrupt, shutting down...\")"
+    ],
+    "description": "Python threading background service template with inter-thread communication"
   }
 }

@@ -1,0 +1,136 @@
+{
+  "[poc writer][web] python socket listener": {
+    "scope": "python",
+    "prefix": "import socket",
+    "body": [
+      "import socket",
+      "def listener():",
+      "    # creating a socket object",
+      "    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)",
+      "    # get local Host machine name",
+      "    host = '0.0.0.0' # or just use (host == '')",
+      "    port = $1",
+      "    s.bind((host, port))",
+      "    # Que up to 5 requests",
+      "    s.listen()",
+      "    while True:",
+      "        # establish connection",
+      "        clientSocket, addr = s.accept()",
+      "        print(\"got a connection from %s\" % str(addr))",
+      "        # clientSocket.send(b'send data')",
+      "        # buf = clientSocket.recv(1024)",
+      "        # clientSocket.close()",
+      "        "
+    ],
+    "description": "python socket listener template"
+  },
+  "[poc writer][web] python socket client": {
+    "scope": "python",
+    "prefix": "import socket",
+    "body": [
+      "import socket",
+      "def client():",
+      "    # creating a socket object",
+      "    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)",
+      "    host = '$1'",
+      "    port = $2",
+      "    # connection to hostname on the port.",
+      "    s.connect((host, port))",
+      "    # send a thank you message to the client.",
+      "    s.send(b'Hello server!')",
+      "    # receive data from the server and shut down",
+      "    msg = s.recv(1024)",
+      "    print (msg.decode('utf-8'))",
+      "    s.close()"
+    ],
+    "description": "python socket client example"
+  },
+  "[poc writer][web] python socket interactive": {
+    "scope": "python",
+    "prefix": "def interactive(",
+    "body": [
+      "def interactive(s):",
+      "    import threading",
+      "    def recv_data():",
+      "        while True:",
+      "            data = s.recv(1024)",
+      "            if not data:",
+      "                break",
+      "            print(data.decode('latin-1'), end='')",
+      "    recv_thread = threading.Thread(target=recv_data)",
+      "    recv_thread.daemon = True",
+      "    recv_thread.start()",
+      "    while True:",
+      "        command = input(\"\")",
+      "        if command.lower() in ['exit', 'quit']:",
+      "            break",
+      "        if command.strip() == '':",
+      "            continue",
+      "        command = command + '\\n'",
+      "        s.send(command.encode())"
+    ],
+    "description": "python socket interactive shell template"
+  },
+  "[poc writer][web] http get request template": {
+    "scope": "python",
+    "prefix": "GET /",
+    "body": [
+      "GET /${1:path} HTTP/1.1\\r\\n",
+      "Host: ${2:example.com}\\r\\n",
+      "User-Agent: ${3:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3}\\r\\n",
+      "Accept: ${4:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8}\\r\\n",
+      "Accept-Language: ${5:en-US,en;q=0.5}\\r\\n",
+      "Accept-Encoding: ${6:gzip, deflate}\\r\\n",
+      "Connection: ${7:keep-alive}\\r\\n",
+      "Upgrade-Insecure-Requests: ${8:1}\\r\\n",
+      "\\r\\n",
+      "$0"
+    ],
+    "description": "HTTP GET request template"
+  },
+  "[poc writer][web] http post www-urlencoded request template": {
+    "scope": "python",
+    "prefix": "POST /",
+    "body": [
+      "POST /${1:path} HTTP/1.1\\r\\n",
+      "Host: ${2:example.com}\\r\\n",
+      "User-Agent: ${3:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3}\\r\\n",
+      "Accept: ${4:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8}\\r\\n",
+      "Accept-Language: ${5:en-US,en;q=0.5}\\r\\n",
+      "Accept-Encoding: ${6:gzip, deflate}\\r\\n",
+      "Content-Type: ${7:application/x-www-form-urlencoded}\\r\\n",
+      "Content-Length: ${8:len}\\r\\n",
+      "Connection: ${9:keep-alive}\\r\\n",
+      "Upgrade-Insecure-Requests: ${10:1}\\r\\n",
+      "\\r\\n",
+      "${11:key}=${12:value}&${13:key}=${14:value}\\r\\n",
+      "\\r\\n",
+      "$0"
+    ],
+    "description": "HTTP POST www-url-encoded request template"
+  },
+  "[poc writer][web] http post json request template": {
+    "scope": "python",
+    "prefix": "POST /",
+    "body": [
+      "POST /${1:path} HTTP/1.1\\r\\n",
+      "Host: ${2:example.com}\\r\\n",
+      "User-Agent: ${3:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3}\\r\\n",
+      "Accept: ${4:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8}\\r\\n",
+      "Accept-Language: ${5:en-US,en;q=0.5}\\r\\n",
+      "Accept-Encoding: ${6:gzip, deflate}\\r\\n",
+      "Content-Type: ${7:application/json}\\r\\n",
+      "Content-Length: ${8:len}\\r\\n",
+      "Connection: ${9:keep-alive}\\r\\n",
+      "Upgrade-Insecure-Requests: ${10:1}\\r\\n",
+      "\\r\\n",
+      "{",
+      "    \"${11:key}\": \"${12:value}\",",
+      "    \"${13:key}\": \"${14:value}\"",
+      "}\\r\\n",
+      "\\r\\n",
+      "$0"
+    ],
+    "description": "HTTP POST JSON request template"
+  }
+}
