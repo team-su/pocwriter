@@ -48,6 +48,10 @@
         "path": "./src/re/frida.json"
       },
       {
+        "language": "javascript",
+        "path": "./src/re/javascript.json"
+      },
+      {
         "language": "python",
         "path": "./src/web/requests.json"
       },

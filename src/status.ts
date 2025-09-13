@@ -16,6 +16,7 @@ async function main(): Promise<number> {
   let allfiles: { [key: string]:{
     name: string;
     scope: string;
+    prefix: string;
     description: string;
   }[] } = {};
   for await (const f of files) {
@@ -34,12 +35,17 @@ async function main(): Promise<number> {
       if (!description) {
         description = k;
       }
+      let prefix = fileobj[k]["prefix"];
+      if (!prefix) {
+        prefix = k;
+      }
       if (!allfiles[f]) {
         allfiles[f] = [];
       }
       allfiles[f].push({
         name: k,
         scope: scope,
+        prefix: prefix,
         description: description
       });
     }

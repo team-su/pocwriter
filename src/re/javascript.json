@@ -1,0 +1,22 @@
+{
+  "[poc writer][re] javascript function hook": {
+    "scope": "javascript",
+    "prefix": "function hook",
+    "body": [
+      "function ${1:hook_function}(originalFunction) {",
+      "    ret = function(...args) {",
+      "        console.log(`Called ${1:hook_function} with arguments:`, args);",
+      "        const result = originalFunction.apply(this, args);",
+      "        console.log(`Result from ${1:hook_function}:`, result);",
+      "        return result;",
+      "    };",
+      "    ret.toString = originalFunction.toString",
+      "    return ret",
+      "}",
+      "",
+      "const ${3:originalFunction} = ${2:target_function};",
+      "${2:target_function} = ${1:hook_function}(${3:originalFunction});"
+    ],
+    "description": "Hook a JavaScript function to log its arguments and return value"
+  }
+}
