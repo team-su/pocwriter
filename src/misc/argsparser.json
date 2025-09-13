@@ -3,20 +3,18 @@
     "scope": "python",
     "prefix": "import argparse",
     "body": [
-      [
-        "import argparse",
-        "",
-        "def parse_args():",
-        "    parser = argparse.ArgumentParser(description=\"${1:Exploitation}\")",
-        "    ",
-        "    parser.add_argument(\"-t\", \"--target\", type=str, required=True, help=\"Target\")",
-        "    parser.add_argument(\"--username\", type=str, required=True, help=\"Username for login\")",
-        "    parser.add_argument(\"--password\", type=str, required=True, help=\"Password for login\")",
-        "    $0",
-        "    return parser.parse_args()",
-        "    # use like args = parse_args()",
-        ""
-      ]
+      "import argparse",
+      "",
+      "def parse_args():",
+      "    parser = argparse.ArgumentParser(description=\"${1:Exploitation}\")",
+      "    ",
+      "    parser.add_argument(\"-t\", \"--target\", type=str, required=True, help=\"Target\")",
+      "    parser.add_argument(\"--username\", type=str, required=True, help=\"Username for login\")",
+      "    parser.add_argument(\"--password\", type=str, required=True, help=\"Password for login\")",
+      "    $0",
+      "    return parser.parse_args()",
+      "    # use like args = parse_args()",
+      ""
     ],
     "description": "python main function template"
   }
