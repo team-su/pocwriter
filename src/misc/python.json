@@ -76,7 +76,7 @@
     "description": "Prints a debug message with the variable name and value"
   },
   "[poc writer][python] brute force string one by one": {
-    "prefix": "def",
+    "prefix": "def search_string",
     "body": [
       "# usage: ",
       "# def checker(attempt: str) -> bool: ...",
@@ -84,10 +84,10 @@
       "# guessed: current guessed string",
       "# max_length: maximum length of the string to guess",
       "# returns: the guessed string",
-      "#   password = dump_string(checker, charset=string.ascii_hexdigits, max_length=20)",
+      "#   password = ${1:search_string}(checker, charset=string.ascii_hexdigits, max_length=20)",
       "from typing import Callable",
       "import string",
-      "def dump_string(checker: Callable[..., bool], charset = string.hexdigits, guessed = \"\", max_length: int = 32) -> str:",
+      "def ${1:search_string}(checker: Callable[..., bool], charset = string.hexdigits, guessed = \"\", max_length: int = 32) -> str:",
       "    if len(guessed) >= max_length:",
       "        return guessed ",
       "    Found = False",
@@ -98,7 +98,7 @@
       "        if checker(attempt): # Check if the current attempt is valid",
       "            print(f\"Found: {c}, current string grows to `{attempt}`\")",
       "            # If valid, continue to build the string",
-      "            guessed = dump_string(checker, charset, attempt, max_length)",
+      "            guessed = ${1:search_string}(checker, charset, attempt, max_length)",
       "            Found = True",
       "        else:",
       "            print(f\"Rejected: {c}, current string remains `{guessed}`\")",
@@ -107,7 +107,6 @@
       "        print(f\"All characters rejected for prefix `{guessed}`\")",
       "        return guessed",
       "    return guessed",
-      "",
       ""
     ],
     "description": "Brute force a string one character at a time using a checker function"
