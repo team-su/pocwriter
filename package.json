@@ -40,8 +40,16 @@
         "path": "./src/misc/threading.json"
       },
       {
+        "language": "csharp",
+        "path": "./src/pwn/cssharp.json"
+      },
+      {
         "language": "python",
         "path": "./src/pwn/interact.json"
+      },
+      {
+        "language": "powershell",
+        "path": "./src/pwn/powershell.json"
       },
       {
         "language": "javascript",

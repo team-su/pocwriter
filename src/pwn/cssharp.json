@@ -1,0 +1,42 @@
+{
+  "[poc writer][bin] csharp dll import(VirtualProtect)": {
+    "scope": "csharp",
+    "body": [
+      "[DllImport(\"kernel32.dll\")]",
+      "static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress,",
+      "   UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);"
+    ],
+    "prefix": "[DllImport(",
+    "description": "csharp dll import(VirtualProtect)"
+  },
+  "[poc writer][csharp] csharp dll import template": {
+    "scope": "csharp",
+    "prefix": "[DllImport(\"",
+    "body": [
+      "// https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.dllimportattribute?view=net-9.0",
+      "[DllImport(\"${1:kernel32.dll\", EntryPoint = \"${3:FunctionName}\", ",
+      "   CharSet = CharSet.Ansi, CallingConventions = CallingConvention::Winapi,",
+      "   ExactSpelling = false, BestFitMapping = false, ThrowOnUnmappableChar = true",
+      "   SetLastError = true",
+      ")]",
+      "public static extern ${2:IntPtr} ${3:FunctionName}(${4:TypeAndParams});"
+    ],
+    "description": "csharp dll import template"
+  },
+  "[poc writer][csharp] csharp main function template": {
+    "scope": "csharp",
+    "prefix": "",
+    "body": [
+      "using System;",
+      "",
+      "class Program",
+      "{",
+      "    static void Main(string[] args)",
+      "    {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "csharp main function template"
+  }
+}
