@@ -75,6 +75,7 @@
     "snippets-list": "ts-node ./src/status.ts",
     "vscode:prepublish": "pnpm run package",
     "vscode:publish": "vsce package --no-dependencies --allow-missing-repository",
+    "build": "pnpm check-snippets-contribute && pnpm snippets-list && pnpm vscode:publish",
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
