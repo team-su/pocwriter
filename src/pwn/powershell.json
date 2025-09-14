@@ -103,19 +103,15 @@
       "    Write-Output \\$TypeBuilder.CreateType()",
       "}",
       "",
-      "",
       "\\$LoadLibraryAddr = Get-ProcAddress kernel32.dll LoadLibraryA",
       "\\$LoadLibraryDelegate = Get-DelegateType @([String]) ([IntPtr])",
-      "\\$LoadLibrary = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$LoadLibraryAddr,",
-      "\\$LoadLibraryDelegate)",
+      "\\$LoadLibrary = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$LoadLibraryAddr, \\$LoadLibraryDelegate)",
       "\\$GetProcAddressAddr = Get-ProcAddress kernel32.dll GetProcAddress",
       "\\$GetProcAddressDelegate = Get-DelegateType @([IntPtr], [String]) ([IntPtr])",
-      "\\$GetProcAddress = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$GetProcAddressAddr,",
-      "\\$GetProcAddressDelegate)",
+      "\\$GetProcAddress = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$GetProcAddressAddr, \\$GetProcAddressDelegate)",
       "\\$VirtualProtectAddr = Get-ProcAddress kernel32.dll VirtualProtect",
       "\\$VirtualProtectDelegate = Get-DelegateType @([IntPtr], [UIntPtr], [UInt32], [UInt32].MakeByRefType()) ([Bool])",
-      "\\$VirtualProtect = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$VirtualProtectAddr,",
-      "\\$VirtualProtectDelegate)"
+      "\\$VirtualProtect = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$VirtualProtectAddr, \\$VirtualProtectDelegate)"
     ],
     "prefix": "function Get-ProcAddress",
     "description": "powershell reflective import dll"
