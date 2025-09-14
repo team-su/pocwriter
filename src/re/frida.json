@@ -1,5 +1,5 @@
 {
-  "[poc writer][re] frida hook function": {
+  "[pocwriter] frida hook function": {
     "scope": "javascript",
     "prefix": "Interceptor.attach",
     "body": [

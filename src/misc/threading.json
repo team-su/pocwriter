@@ -1,5 +1,5 @@
 {
-  "[poc writer][misc] python threading template": {
+  "[pocwriter] python threading template": {
     "scope": "python",
     "prefix": "import threading",
     "body": [
@@ -23,7 +23,7 @@
     ],
     "description": "Python threading template with thread creation and joining"
   },
-  "[poc writer][misc] python threading pool template": {
+  "[pocwriter] python threading pool template": {
     "scope": "python",
     "prefix": "from concurrent.futures import ThreadPoolExecutor",
     "body": [
@@ -53,7 +53,7 @@
     ],
     "description": "Python threading pool template using ThreadPoolExecutor"
   },
-  "[poc writer][misc] python threading background service": {
+  "[pocwriter] python threading background service": {
     "scope": "python",
     "prefix": "import threading",
     "body": [

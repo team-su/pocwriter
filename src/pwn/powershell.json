@@ -1,5 +1,5 @@
 {
-  "[poc writer][pwn] powershell add-type": {
+  "[pocwriter] powershell add-type": {
     "scope": "powershell",
     "body": [
       "\\$code = @\"",
@@ -17,7 +17,7 @@
     "prefix": "Add-Type",
     "description": "powershell script template"
   },
-  "[poc writer][pwn] powershell invoke function in dll": {
+  "[pocwriter] powershell invoke function in dll": {
     "scope": "powershell",
     "prefix": "[DllImport(\"",
     "body": [
@@ -31,7 +31,7 @@
     ],
     "description": "powershell invoke function in dll"
   },
-  "[poc writer][pwn] powershell dll import win32apis (VirtualProtect, LoadLibrary, GetProcAddress)": {
+  "[pocwriter] powershell dll import win32apis (VirtualProtect, LoadLibrary, GetProcAddress)": {
     "scope": "powershell",
     "body": [
       "\\$APIs = @\"",
@@ -51,7 +51,7 @@
     "prefix": "Add-Type",
     "description": "powershell dll import win32apis (VirtualProtect, LoadLibrary, GetProcAddress example)"
   },
-  "[poc writer][pwn] powershell reflective import dll": {
+  "[pocwriter] powershell reflective import dll": {
     "scope": "powershell",
     "body": [
       "function Get-ProcAddress {",

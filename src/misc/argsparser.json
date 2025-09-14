@@ -1,5 +1,5 @@
 {
-  "[poc writer][misc] python argsparser ": {
+  "[pocwriter] python argsparser ": {
     "scope": "python",
     "prefix": "import argparse",
     "body": [

@@ -1,5 +1,5 @@
 {
-  "[poc writer][web] import requests with ssl error ignore": {
+  "[pocwriter] import requests with ssl error ignore": {
     "scope": "python",
     "prefix": "import requests",
     "body": [
@@ -8,7 +8,7 @@
     ],
     "description": "ignore SSL certificate errors in requests library"
   },
-  "[poc writer][web] requests template": {
+  "[pocwriter] requests template": {
     "scope": "python",
     "prefix": "requests",
     "body": [

@@ -1,5 +1,5 @@
 {
-  "[poc writer][crypto] fast pow": {
+  "[pocwriter] fast pow": {
     "scope": "python",
     "prefix": "pow",
     "body": [

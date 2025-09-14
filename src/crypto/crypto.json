@@ -1,5 +1,5 @@
 {
-  "[poc writer][crypto] fast gcd": {
+  "[pocwriter] fast gcd": {
     "scope": "python",
     "prefix": "def gcd(",
     "body": [

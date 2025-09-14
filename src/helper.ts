@@ -70,7 +70,7 @@ function main(): number {
 
   let currentObj = fs.readFileSync(targetFile).toString();
   let snippetObj: SnippetFile = currentObj ? JSON.parse(currentObj) : {};
-  let newName = `[poc writer][${pocObj.category}] ${pocObj.name}`;
+  let newName = `[pocwriter] ${pocObj.name}`;
   snippetObj[newName] = {
     scope: pocObj.language,
     prefix: pocObj.prefix,

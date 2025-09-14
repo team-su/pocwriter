@@ -1,5 +1,5 @@
 {
-  "[poc writer][bin] csharp dll import(VirtualProtect)": {
+  "[pocwriter] csharp dll import(VirtualProtect)": {
     "scope": "csharp",
     "body": [
       "[DllImport(\"kernel32.dll\")]",
@@ -9,7 +9,7 @@
     "prefix": "[DllImport(",
     "description": "csharp dll import(VirtualProtect)"
   },
-  "[poc writer][csharp] csharp dll import template": {
+  "[pocwriter] csharp dll import template": {
     "scope": "csharp",
     "prefix": "[DllImport(\"",
     "body": [
@@ -23,7 +23,7 @@
     ],
     "description": "csharp dll import template"
   },
-  "[poc writer][csharp] csharp main function template": {
+  "[pocwriter] csharp main function template": {
     "scope": "csharp",
     "prefix": "",
     "body": [

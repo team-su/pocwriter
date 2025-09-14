@@ -1,5 +1,5 @@
 {
-  "[poc writer][re] javascript function hook": {
+  "[pocwriter] javascript function hook": {
     "scope": "javascript",
     "prefix": "function hook",
     "body": [

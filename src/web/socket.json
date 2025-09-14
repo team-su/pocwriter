@@ -1,5 +1,5 @@
 {
-  "[poc writer][web] python socket listener": {
+  "[pocwriter] python socket listener": {
     "scope": "python",
     "prefix": "import socket",
     "body": [
@@ -24,7 +24,7 @@
     ],
     "description": "python socket listener template"
   },
-  "[poc writer][web] python socket client": {
+  "[pocwriter] python socket client": {
     "scope": "python",
     "prefix": "import socket",
     "body": [
@@ -45,7 +45,7 @@
     ],
     "description": "python socket client example"
   },
-  "[poc writer][web] python socket interactive": {
+  "[pocwriter] python socket interactive": {
     "scope": "python",
     "prefix": "def interactive(",
     "body": [
@@ -71,7 +71,7 @@
     ],
     "description": "python socket interactive shell template"
   },
-  "[poc writer][web] http get request template": {
+  "[pocwriter] http get request template": {
     "scope": "python",
     "prefix": "GET /",
     "body": [
@@ -88,7 +88,7 @@
     ],
     "description": "HTTP GET request template"
   },
-  "[poc writer][web] http post www-urlencoded request template": {
+  "[pocwriter] http post www-urlencoded request template": {
     "scope": "python",
     "prefix": "POST /",
     "body": [
@@ -108,7 +108,7 @@
     ],
     "description": "HTTP POST www-url-encoded request template"
   },
-  "[poc writer][web] http post json request template": {
+  "[pocwriter] http post json request template": {
     "scope": "python",
     "prefix": "POST /",
     "body": [
