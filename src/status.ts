@@ -59,6 +59,8 @@ async function main(): Promise<number> {
   }
 
   console.log(JSON.stringify(allSnippets, null, 2));
+
+  fs.writeFileSync('snippets-full.json', JSON.stringify(allSnippets, null, 2));
   return 0;
 }
 
