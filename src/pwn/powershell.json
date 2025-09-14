@@ -46,7 +46,8 @@
       "    public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr ekwiam, uint flNewProtect, out uint lpflOldProtect);",
       "}",
       "\"@",
-      "Add-Type \\$APIs"
+      "Add-Type \\$APIs",
+      "// Usage: \\$lib = [APIs]::LoadLibrary(\"amsi.dll\")"
     ],
     "prefix": "Add-Type",
     "description": "powershell dll import win32apis (VirtualProtect, LoadLibrary, GetProcAddress example)"
@@ -111,7 +112,9 @@
       "\\$GetProcAddress = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$GetProcAddressAddr, \\$GetProcAddressDelegate)",
       "\\$VirtualProtectAddr = Get-ProcAddress kernel32.dll VirtualProtect",
       "\\$VirtualProtectDelegate = Get-DelegateType @([IntPtr], [UIntPtr], [UInt32], [UInt32].MakeByRefType()) ([Bool])",
-      "\\$VirtualProtect = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$VirtualProtectAddr, \\$VirtualProtectDelegate)"
+      "\\$VirtualProtect = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(\\$VirtualProtectAddr, \\$VirtualProtectDelegate)",
+      "# Example usage:",
+      "# \\$hModule = \\$LoadLibrary.Invoke('user32.dll')"
     ],
     "prefix": "function Get-ProcAddress",
     "description": "powershell reflective import dll"
