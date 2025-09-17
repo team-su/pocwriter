@@ -66,6 +66,10 @@
       {
         "language": "python",
         "path": "./src/web/socket.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/crypto/Crypto.Util.number,sys,sage.json"
       }
     ]
   },
