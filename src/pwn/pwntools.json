@@ -1,0 +1,34 @@
+{
+  "[pocwriter] pwntools heap exploit function alias": {
+    "scope": "python",
+    "prefix": "def malloc(size",
+    "body": [
+      "```python",
+      "s       = lambda data               :p.send(data)",
+      "sl      = lambda data               :p.sendline(data)",
+      "sa      = lambda x,data             :p.sendafter(x, data)",
+      "sla     = lambda x,data             :p.sendlineafter(x, data)",
+      "",
+      "def malloc(size,content):",
+      "    sla('Your choice :',b'1')",
+      "    sla('Size of Heap : ',str(size))",
+      "    sa('Content',content)",
+      "",
+      "def edit(index,content):",
+      "    sla('Your choice :',b'2')",
+      "    sla('Index :',str(index))",
+      "    sla('Size of Heap : ',str(len(content)))",
+      "    sla('Content of heap : ',content)",
+      "",
+      "def free(index):",
+      "    sla('Your choice :',b'3')",
+      "    sla('Index :',str(index))",
+      "",
+      "def show(index):",
+      "    sla('Your choice :',b'4')",
+      "    sla('Index :',str(index))",
+      "```"
+    ],
+    "description": "pwntools heap exploitation malloc/free operation reusable snippet"
+  }
+}
