@@ -74,7 +74,7 @@ function main(): number {
   snippetObj[newName] = {
     scope: pocObj.language,
     prefix: pocObj.prefix,
-    body: pocObj.body.split("\n"),
+    body: pocObj.body.split("\n").slice(1, -1), // remove begin ``` and end ```
     description: pocObj.description,
   };
   console.info("Updated source code with: \n", snippetObj);
