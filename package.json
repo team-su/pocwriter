@@ -70,6 +70,10 @@
       {
         "language": "python",
         "path": "./src/pwn/pwntools.json"
+      },
+      {
+        "language": "python",
+        "path": "./src/crypto/itertools.json"
       }
     ]
   },
