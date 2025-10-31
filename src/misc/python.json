@@ -8,6 +8,18 @@
     ],
     "description": "spawn a pty python console"
   },
+  "[pocwriter] python def main function template": {
+    "scope": "python",
+    "prefix": "def main()",
+    "body": [
+      "def main() -> None:",
+      "    pass",
+      "",
+      "if __name__ == '__main__':",
+      "   main()"
+    ],
+    "description": "python main function template"
+  },
   "[pocwriter] python main function template": {
     "scope": "python",
     "prefix": "if __name__ == '__main__':",
