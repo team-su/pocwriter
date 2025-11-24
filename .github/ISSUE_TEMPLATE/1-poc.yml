@@ -1,7 +1,8 @@
 name: New poc contribution request
 description: |
-  Creating new poc contribution request issue. 通过此模板创建新的代码片段贡献请求。
-  Code Snippet is according to VSCode Snippet format. 代码片段遵循VSCode代码片段格式。 https://code.visualstudio.com/docs/editing/userdefinedsnippets
+  Creating new poc contribution request issue. Code Snippet is according to VSCode Snippet format. 
+
+  通过此模板创建新的代码片段贡献请求，码片段遵循VSCode代码片段格式。
 title: "[POC Snippet Request]"
 labels:
   - "POC Snippet"
@@ -15,6 +16,7 @@ body:
       label: Category
       description: |
         Which category does this snippet belong to? 
+
         这是指你需要提供的代码片段利用类别，比如web、pwn、逆向、密码学等。
       options:
         - web
@@ -33,6 +35,7 @@ body:
       label: Tool
       description: |
         Which tool/framework/library did it use? provide one of it. 
+
         请提供代码片段所使用的工具/框架/库名称。 如果可以精确到框架或者库名称 请不要使用语言名称。提供一个即可。
       placeholder: frida
     validations:
@@ -43,6 +46,7 @@ body:
       label: Snippet Name
       description: |
         Please provide a short name for this snippet. 
+
         请为代码片段提供一个简短的名称。
       placeholder: Simple HTTP Request
     validations:
@@ -53,6 +57,7 @@ body:
       label: Snippet Content
       description: |
         Please provide the code snippet here. If your snippet has multiple part unfullfilled, please use $1 $2 ... as placeholder and order by the number.(start from 1, last one is 0), and if your snippet contains $ symbol, please use escape character \ to escape it.
+
         请在此处提供代码片段。如果代码片段有多个需要使用者自己补充的部分，请使用 $1 $2 ... 作为占位符，并按数字顺序排列（从1开始，最后一个是0）。如果你的代码片段存在 $ 符号，请使用转义字符 \ 进行转义。
       placeholder: |
         import requests
@@ -69,6 +74,7 @@ body:
       label: Short Description
       description: |
         Please provide a short description for this snippet.
+
         请为代码片段提供一个简短的描述。
       placeholder: e.g. A simple HTTP request snippet using requests library.
     validations:
@@ -79,6 +85,7 @@ body:
       label: Trigger Prefix
       description: |
         The prefix to trigger this snippet in vscode. (e.g. import requests), split by newline for multiple prefixes.
+
         用于触发此代码片段补全的前缀。例如，import requests，多个前缀请用换行符分隔。
       placeholder: |
         import requests
@@ -91,6 +98,7 @@ body:
       label: Language
       description: |
         The programming language of this snippet. (e.g. python, javascript ...)
+
         代码片段所使用的编程语言。（例如 python、javascript 等等）
       options:
         - python
@@ -113,12 +121,19 @@ body:
       label: more detail.
       description: |
         Any more details you want to provide?
+
         你还想提供更多的细节吗？
+
 
         ⚠️ Warning:
         After you submit this issue, a GitHub Action will be triggered to process your request. A new PR will be created to add your snippet.
+
         提交此问题后，将触发GitHub Action来处理您的请求, 并创建一个新的PR来添加您的代码片段。
 
+
         ⚠️ 警告
-        PS: Please make sure your snippet format is correct after submission, or your snippet may not work properly.
-        注意：请确保你提交的代码片段格式正确，否则代码片段可能无法正常工作.
+        PS: Please make sure your snippet format is correct for vscode snippet format after submission, or your snippet may not work properly.
+
+        注意：请确保你提交的代码片段格式符合 vscode snippet 规范，否则代码片段可能无法正常工作.
+
+        https://code.visualstudio.com/docs/editing/userdefinedsnippets
