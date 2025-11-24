@@ -1,16 +1,22 @@
 {
   "[pocwriter] python pty console": {
     "scope": "python",
-    "prefix": "import pty",
+    "prefix": [
+      "import pty",
+      "pty.spawn(\"/bin/bash\")"
+    ],
     "body": [
       "import pty",
       "pty.spawn(\"/bin/bash\")"
     ],
     "description": "spawn a pty python console"
   },
-  "[pocwriter] python def main function template": {
+  "[pocwriter] python main function template": {
     "scope": "python",
-    "prefix": "def main()",
+    "prefix": [
+      "def main()",
+      "if __name__ == '__main__':"
+    ],
     "body": [
       "def main() -> None:",
       "    pass",
@@ -20,19 +26,11 @@
     ],
     "description": "python main function template"
   },
-  "[pocwriter] python main function template": {
-    "scope": "python",
-    "prefix": "if __name__ == '__main__':",
-    "body": [
-      "",
-      "if __name__ == '__main__':",
-      "    $0"
-    ],
-    "description": "python main function template"
-  },
   "[pocwriter] uv init template": {
     "scope": "python",
-    "prefix": "# /// script",
+    "prefix": [
+      "# /// script"
+    ],
     "body": [
       "# /// script",
       "# requires-python = \">=3.10\"",
@@ -54,7 +52,19 @@
   },
   "[pocwriter] charsets": {
     "scope": "python",
-    "prefix": "import string",
+    "prefix": [
+      "import string",
+      "LOWERCASE = string.ascii_lowercase",
+      "UPPERCASE = string.ascii_uppercase",
+      "DIGITS = string.digits",
+      "HEXDIGITS = string.hexdigits",
+      "PUNCTUATION = string.punctuation",
+      "WHITESPACE = string.whitespace",
+      "ALPHABETIC = LOWERCASE + UPPERCASE",
+      "ALPHANUMERIC = ALPHABETIC + DIGITS",
+      "PRINTABLE = string.printable",
+      "charsets = "
+    ],
     "body": [
       "import string",
       "",
@@ -77,7 +87,10 @@
     "description": "Common character sets in Python using the string module"
   },
   "[pocwriter] print debug to stderr": {
-    "prefix": "def debug_print(**args, **kwargs):",
+    "prefix": [
+      "def debug_print(**args, **kwargs):",
+      "print_stderr"
+    ],
     "body": [
       "def debug_print(**args, **kwargs):",
       "    import sys",
@@ -88,7 +101,11 @@
     "description": "Prints a debug message with the variable name and value"
   },
   "[pocwriter] brute force string one by one": {
-    "prefix": "def search_string",
+    "prefix": [
+      "def search_string",
+      "brute-force string",
+      "sql_inject brute force"
+    ],
     "body": [
       "# usage: ",
       "# def checker(attempt: str) -> bool: ...",
@@ -124,8 +141,12 @@
     "description": "Brute force a string one character at a time using a checker function"
   },
   "[pocwriter] brute force string with ascii code binary search": {
-    "prefix": "def binary_search",
     "scope": "python",
+    "prefix": [
+      "def binary_search",
+      "bisection search string",
+      "sql_inject binary search"
+    ],
     "body": [
       "from typing import Callable",
       "base_start = 33",

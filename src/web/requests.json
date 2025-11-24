@@ -1,7 +1,10 @@
 {
   "[pocwriter] import requests with ssl error ignore": {
     "scope": "python",
-    "prefix": "import requests",
+    "prefix": [
+      "import requests",
+      "requests.packages.urllib3.disable_warnings"
+    ],
     "body": [
       "import requests",
       "requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)"
@@ -10,7 +13,11 @@
   },
   "[pocwriter] requests template": {
     "scope": "python",
-    "prefix": "requests",
+    "prefix": [
+      "requests.post",
+      "requests.get",
+      "requests.Session()"
+    ],
     "body": [
       "def ${1:request_}():",
       "    proxy = {",

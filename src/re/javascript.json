@@ -1,7 +1,11 @@
 {
   "[pocwriter] javascript function hook": {
     "scope": "javascript",
-    "prefix": "function hook",
+    "prefix": [
+      "function hook",
+      "hook_function",
+      "originalFunction"
+    ],
     "body": [
       "function ${1:hook_function}(originalFunction) {",
       "    ret = function(...args) {",

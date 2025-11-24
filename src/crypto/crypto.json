@@ -1,7 +1,9 @@
 {
   "[pocwriter] fast gcd": {
     "scope": "python",
-    "prefix": "def gcd(",
+    "prefix": [
+      "def gcd("
+    ],
     "body": [
       "from Crypto.Util.number import *",
       "import sys",

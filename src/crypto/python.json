@@ -1,7 +1,9 @@
 {
   "[pocwriter] fast pow": {
     "scope": "python",
-    "prefix": "pow",
+    "prefix": [
+      "pow"
+    ],
     "body": [
       "$0 = pow($1, e, N)"
     ],

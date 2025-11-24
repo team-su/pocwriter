@@ -1,7 +1,9 @@
 {
   "[pocwriter] frida hook function": {
     "scope": "javascript",
-    "prefix": "Interceptor.attach",
+    "prefix": [
+      "Interceptor.attach"
+    ],
     "body": [
       "Interceptor.attach( $1, {",
       "    onEnter: function(args){",

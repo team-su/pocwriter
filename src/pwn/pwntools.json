@@ -1,7 +1,9 @@
 {
   "[pocwriter] pwntools house of apple": {
     "scope": "python",
-    "prefix": "def house_of_apple",
+    "prefix": [
+      "def house_of_apple"
+    ],
     "body": [
       "def house_of_apple_sys():",
       "    io_wfile_jumps = libc_base + libc.sym['_IO_wfile_jumps']",
@@ -19,7 +21,12 @@
   },
   "[pocwriter] pwntools heap exploit function alias": {
     "scope": "python",
-    "prefix": "def malloc(size",
+    "prefix": [
+      "def malloc(size",
+      "def edit(index",
+      "def free(index",
+      "def show(index"
+    ],
     "body": [
       "s       = lambda data               :p.send(data)",
       "sl      = lambda data               :p.sendline(data)",
@@ -49,7 +56,9 @@
   },
   "[pocwriter] pwntools initial template": {
     "scope": "python",
-    "prefix": "from pwn import *",
+    "prefix": [
+      "from pwn import *"
+    ],
     "body": [
       "from pwn import *",
       "from ctypes import *",

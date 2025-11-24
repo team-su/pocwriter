@@ -14,7 +14,7 @@ interface PocData {
 
 interface CodeSnippet {
   scope: string;
-  prefix: string;
+  prefix: string[];
   body: string[];
   description: string;
 }
@@ -73,7 +73,7 @@ function main(): number {
   let newName = `[pocwriter] ${pocObj.name}`;
   snippetObj[newName] = {
     scope: pocObj.language,
-    prefix: pocObj.prefix,
+    prefix: pocObj.prefix.split("\n"),
     body: pocObj.body.split("\n").slice(1, -1), // remove begin ``` and end ```
     description: pocObj.description,
   };

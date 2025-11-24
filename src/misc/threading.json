@@ -1,7 +1,10 @@
 {
   "[pocwriter] python threading template": {
     "scope": "python",
-    "prefix": "import threading",
+    "prefix": [
+      "import threading",
+      "threading.Thread(target="
+    ],
     "body": [
       "import threading",
       "",
@@ -25,7 +28,10 @@
   },
   "[pocwriter] python threading pool template": {
     "scope": "python",
-    "prefix": "from concurrent.futures import ThreadPoolExecutor",
+    "prefix": [
+      "from concurrent.futures import ThreadPoolExecutor",
+      "ThreadPoolExecutor(max_workers="
+    ],
     "body": [
       "from concurrent.futures import ThreadPoolExecutor, as_completed",
       "",
@@ -55,7 +61,10 @@
   },
   "[pocwriter] python threading background service": {
     "scope": "python",
-    "prefix": "import threading",
+    "prefix": [
+      "import threading",
+      "background_service"
+    ],
     "body": [
       "import threading",
       "import queue",

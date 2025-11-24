@@ -6,12 +6,16 @@
       "static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress,",
       "   UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);"
     ],
-    "prefix": "[DllImport(",
+    "prefix": [
+      "[DllImport("
+    ],
     "description": "csharp dll import(VirtualProtect)"
   },
   "[pocwriter] csharp dll import template": {
     "scope": "csharp",
-    "prefix": "[DllImport(\"",
+    "prefix": [
+      "[DllImport(\""
+    ],
     "body": [
       "// https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.dllimportattribute?view=net-9.0",
       "[DllImport(\"${1:kernel32.dll\", EntryPoint = \"${3:FunctionName}\", ",
@@ -25,7 +29,9 @@
   },
   "[pocwriter] csharp main function template": {
     "scope": "csharp",
-    "prefix": "",
+    "prefix": [
+      "static void Main(string[] args)"
+    ],
     "body": [
       "using System;",
       "",

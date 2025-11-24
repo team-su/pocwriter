@@ -1,7 +1,11 @@
 {
   "[pocwriter] python interactive console in python script": {
     "scope": "python",
-    "prefix": "import code",
+    "prefix": [
+      "import code",
+      "code.interact",
+      "python interactive console"
+    ],
     "body": [
       "import code",
       "code.interact(local=locals())"

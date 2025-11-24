@@ -52,6 +52,10 @@
         "path": "./src/pwn/powershell.json"
       },
       {
+        "language": "python",
+        "path": "./src/pwn/pwntools.json"
+      },
+      {
         "language": "javascript",
         "path": "./src/re/frida.json"
       },
@@ -66,10 +70,6 @@
       {
         "language": "python",
         "path": "./src/web/socket.json"
-      },
-      {
-        "language": "python",
-        "path": "./src/pwn/pwntools.json"
       }
     ]
   },

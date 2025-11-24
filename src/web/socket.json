@@ -1,7 +1,10 @@
 {
   "[pocwriter] python socket listener": {
     "scope": "python",
-    "prefix": "import socket",
+    "prefix": [
+      "import socket",
+      "def listener():"
+    ],
     "body": [
       "import socket",
       "def listener():",
@@ -26,7 +29,10 @@
   },
   "[pocwriter] python socket client": {
     "scope": "python",
-    "prefix": "import socket",
+    "prefix": [
+      "import socket",
+      "def client("
+    ],
     "body": [
       "import socket",
       "def client():",
@@ -45,35 +51,11 @@
     ],
     "description": "python socket client example"
   },
-  "[pocwriter] python socket interactive": {
-    "scope": "python",
-    "prefix": "def interactive(",
-    "body": [
-      "def interactive(s):",
-      "    import threading",
-      "    def recv_data():",
-      "        while True:",
-      "            data = s.recv(1024)",
-      "            if not data:",
-      "                break",
-      "            print(data.decode('latin-1'), end='')",
-      "    recv_thread = threading.Thread(target=recv_data)",
-      "    recv_thread.daemon = True",
-      "    recv_thread.start()",
-      "    while True:",
-      "        command = input(\"\")",
-      "        if command.lower() in ['exit', 'quit']:",
-      "            break",
-      "        if command.strip() == '':",
-      "            continue",
-      "        command = command + '\\n'",
-      "        s.send(command.encode())"
-    ],
-    "description": "python socket interactive shell template"
-  },
   "[pocwriter] http get request template": {
     "scope": "python",
-    "prefix": "GET /",
+    "prefix": [
+      "GET /"
+    ],
     "body": [
       "'GET /${1:path} HTTP/1.1\\r\\n' + \\",
       "'Host: ${2:example.com}\\r\\n' + \\",
@@ -90,7 +72,9 @@
   },
   "[pocwriter] http post www-urlencoded request template": {
     "scope": "python",
-    "prefix": "POST /",
+    "prefix": [
+      "POST /"
+    ],
     "body": [
       "'POST /${1:path} HTTP/1.1\\r\\n' + \\",
       "'Host: ${2:example.com}\\r\\n' + \\",
@@ -110,7 +94,9 @@
   },
   "[pocwriter] http post json request template": {
     "scope": "python",
-    "prefix": "POST /",
+    "prefix": [
+      "POST /"
+    ],
     "body": [
       "'POST /${1:path} HTTP/1.1\\r\\n' + \\",
       "'Host: ${2:example.com}\\r\\n' + \\",

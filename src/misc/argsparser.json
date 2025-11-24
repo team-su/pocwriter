@@ -1,7 +1,10 @@
 {
   "[pocwriter] python argsparser ": {
     "scope": "python",
-    "prefix": "import argparse",
+    "prefix": [
+      "import argparse",
+      "def parse_args():"
+    ],
     "body": [
       "import argparse",
       "",
