@@ -4,11 +4,6 @@ description: |
   通过此模板创建新的代码片段贡献请求。
   Code Snippet is according to VSCode Snippet format. https://code.visualstudio.com/docs/editing/userdefinedsnippets
   代码片段遵循VSCode代码片段格式。 https://code.visualstudio.com/docs/editing/userdefinedsnippets
-  After you submit this issue, a GitHub Action will be triggered to process your request. A new PR will be created to add your snippet.
-  提交此问题后，将触发GitHub Action来处理您的请求, 并创建一个新的PR来添加您的代码片段。
-
-  PS: Please make sure your snippet format is correct after submission, or your snippet may not work properly.
-  注意：请确保你提交的代码片段格式正确，否则代码片段可能无法正常工作。
 title: "[POC Snippet Request]"
 labels:
   - "POC Snippet"
@@ -80,8 +75,8 @@ body:
       placeholder: e.g. A simple HTTP request snippet using requests library.
     validations:
       required: true
-  - type: input
-    id: textarea
+  - type: textarea
+    id: prefix
     attributes:
       label: Trigger Prefix
       description: |
@@ -116,8 +111,16 @@ body:
       required: true
   - type: textarea
     id: message
-    description: |
-      Any more details you want to provide?
-      你还想提供更多的细节吗？
     attributes:
       label: more detail.
+      description: |
+        Any more details you want to provide?
+        你还想提供更多的细节吗？
+
+        ⚠️ Warning:
+        After you submit this issue, a GitHub Action will be triggered to process your request. A new PR will be created to add your snippet.
+        提交此问题后，将触发GitHub Action来处理您的请求, 并创建一个新的PR来添加您的代码片段。
+
+        ⚠️ 警告
+        PS: Please make sure your snippet format is correct after submission, or your snippet may not work properly.
+        注意：请确保你提交的代码片段格式正确，否则代码片段可能无法正常工作.
