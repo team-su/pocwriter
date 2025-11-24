@@ -1,9 +1,7 @@
 name: New poc contribution request
 description: |
-  Creating new poc contribution request issue. 
-  通过此模板创建新的代码片段贡献请求。
-  Code Snippet is according to VSCode Snippet format. https://code.visualstudio.com/docs/editing/userdefinedsnippets
-  代码片段遵循VSCode代码片段格式。 https://code.visualstudio.com/docs/editing/userdefinedsnippets
+  Creating new poc contribution request issue. 通过此模板创建新的代码片段贡献请求。
+  Code Snippet is according to VSCode Snippet format. 代码片段遵循VSCode代码片段格式。 https://code.visualstudio.com/docs/editing/userdefinedsnippets
 title: "[POC Snippet Request]"
 labels:
   - "POC Snippet"
