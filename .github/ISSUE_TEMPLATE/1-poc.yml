@@ -111,6 +111,15 @@ body:
         - java
         - php
         - ruby
+        - powershell
+        - lua
+        - typescript
+        - html
+        - css
+        - json
+        - xml
+        - yaml
+        - sql
         - markdown
       default: 0
     validations:
