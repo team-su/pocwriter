@@ -133,5 +133,52 @@
       "VirtualProtect"
     ],
     "description": "powershell reflective import dll"
+  },
+  "[pocwriter] Create powershell function": {
+    "scope": "python",
+    "prefix": [
+      "function"
+    ],
+    "body": [
+      "function $1 {",
+      "",
+      "<#",
+      ".SYNOPSIS",
+      "    Returns ...",
+      "",
+      ".DESCRIPTION",
+      "    $1 is a function that ....",
+      "",
+      ".PARAMETER $2",
+      "     This is the $2.",
+      "",
+      ".EXAMPLE",
+      "     'Server1', 'Server2' | $1",
+      "",
+      ".EXAMPLE",
+      "     $1 ... (args)",
+      "",
+      ".INPUTS",
+      "    String",
+      "",
+      ".OUTPUTS",
+      "    String",
+      "",
+      ".NOTES",
+      "    Author:  ",
+      "    Website: ",
+      "    Twitter: ",
+      "#>",
+      "",
+      "[CmdletBinding()]",
+      "    param (",
+      "",
+      ")",
+      "",
+      "#Function Body",
+      "    $0",
+      "}"
+    ],
+    "description": "simple powershell function template"
   }
 }
