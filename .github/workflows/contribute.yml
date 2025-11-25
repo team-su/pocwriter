@@ -52,10 +52,23 @@ jobs:
           # or any other way in this link:
           # https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#workarounds-to-trigger-further-workflow-runs
           token: ${{ env.TOKEN }}
-          branch: update-poc-from-issue
+          branch: poc-contrib-${{ github.event.issue.number }}
           branch-suffix: timestamp
-          title: 'feat: ${{ github.actor }} update poc from issue(auto by bot)'
-          commit-message: 'feat: ${{ github.actor }} update poc from issue(auto by bot)'
+          title: 'contribute[#${{ github.event.issue.number }}]: poc snippet "${{ steps.issue-parser.outputs.issueparser_name }}"'
+          body: |
+            This PR adds a new poc snippet contributed by @${{ github.actor }} from issue #${{ github.event.issue.number }}.
+
+            - Category: ${{ steps.issue-parser.outputs.issueparser_category }}
+            - Tool: ${{ steps.issue-parser.outputs.issueparser_tool }}
+            - Snippet Name: ${{ steps.issue-parser.outputs.issueparser_name }}
+            - Trigger Prefix: ${{ steps.issue-parser.outputs.issueparser_prefix }}
+
+            Thank you for your contribution! 
+            Merge this PR will close #${{ github.event.issue.number }} automatically.
+
+            if you get conflict, please feel free to contact maintainers to help you resolve it.
+            Or just try close this PR and issue, edit your issue,open it again to trigger a new PR again.
+          commit-message: 'contrib: a poc snippet to ${{ steps.issue-parser.outputs.issueparser_category }}/${{ steps.issue-parser.outputs.issueparser_tool }} - ${{ steps.issue-parser.outputs.issueparser_name }} from issue #${{ github.event.issue.number }}'
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           delete-branch: true
