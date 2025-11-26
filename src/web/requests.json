@@ -83,7 +83,7 @@
     ],
     "description": "requests template with session and error handling"
   },
-  "[pocwriter] requests Session template": {
+  "[pocwriter] requests Session init": {
     "scope": "python",
     "prefix": [
       "requests.Session()"
