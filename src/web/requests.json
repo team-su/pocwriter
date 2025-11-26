@@ -11,12 +11,10 @@
     ],
     "description": "ignore SSL certificate errors in requests library"
   },
-  "[pocwriter] requests template": {
+  "[pocwriter] requests template post": {
     "scope": "python",
     "prefix": [
-      "requests.post",
-      "requests.get",
-      "requests.Session()"
+      "requests.post"
     ],
     "body": [
       "def ${1:request_}():",
@@ -39,7 +37,7 @@
       "    }",
       "    try:",
       "        # use data for x-www-form-urlencoded, json=data for application/json",
-      "        response = session.${5:post}(${6:url}, headers=headers, data=data, json=data, proxies=proxy, verify=False, timeout=10)",
+      "        response = session.post(${6:url}, headers=headers, data=data, json=data, proxies=proxy, verify=False, timeout=10)",
       "        print(f\"${1:request_} Response Status Code: {response.status_code}\")",
       "        $0",
       "        return ${7:response}",
@@ -50,5 +48,116 @@
       ""
     ],
     "description": "requests template with session and error handling"
+  },
+  "[pocwriter] requests template get": {
+    "scope": "python",
+    "prefix": [
+      "requests.get"
+    ],
+    "body": [
+      "def ${1:request_}():",
+      "    proxy = {",
+      "        \"http\": \"http://127.0.0.1:8080\",",
+      "        \"https\": \"http://127.0.0.1:8080\",",
+      "    }",
+      "    session = requests.Session()",
+      "    headers = {",
+      "        \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\",",
+      "        \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\",",
+      "        \"Cookie\": \"$2\",",
+      "    }",
+      "    params = {",
+      "        \"${3:key}\": f\"${4:value}\"",
+      "    }",
+      "    try:",
+      "        # use data for x-www-form-urlencoded, json=data for application/json",
+      "        response = session.get(${6:url}, headers=headers, params=params, proxies=proxy, verify=False, timeout=10)",
+      "        print(f\"${1:request_} Response Status Code: {response.status_code}\")",
+      "        $0",
+      "        return ${7:response}",
+      "    except requests.RequestException as e:",
+      "        print(f\"${1:request_} request get error: {e}\")",
+      "    ",
+      "    return None",
+      ""
+    ],
+    "description": "requests template with session and error handling"
+  },
+  "[pocwriter] requests Session template": {
+    "scope": "python",
+    "prefix": [
+      "requests.Session()"
+    ],
+    "body": [
+      "session = requests.Session()",
+      "PROXIES = {",
+      "    \"http\": \"http://127.0.0.1:8080\",",
+      "    \"https\": \"http://127.0.0.1:8080\",",
+      "}",
+      "session.proxies.update(${1:PROXIES})"
+    ],
+    "description": "requests Session initialization with proxy settings"
+  },
+  "[pocwriter] request Session get": {
+    "scope": "python",
+    "prefix": [
+      "session.get("
+    ],
+    "body": [
+      "def ${1:request_}():",
+      "    headers = {",
+      "        \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\",",
+      "        \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\",",
+      "        \"Cookie\": \"$2\",",
+      "    }",
+      "    params = {",
+      "        \"${3:key}\": f\"${4:value}\"",
+      "    }",
+      "    try:",
+      "        # use data for x-www-form-urlencoded, json=data for application/json",
+      "        response = session.get(${6:url}, headers=headers, params=params, proxies=proxy, verify=False, timeout=10)",
+      "        print(f\"${1:request_} Response Status Code: {response.status_code}\")",
+      "        $0",
+      "        return ${7:response}",
+      "    except requests.RequestException as e:",
+      "        print(f\"${1:request_} request get error: {e}\")",
+      "    ",
+      "    return None",
+      ""
+    ],
+    "description": "requests Session get request"
+  },
+  "[pocwriter] request Session post": {
+    "scope": "python",
+    "prefix": [
+      "session.post("
+    ],
+    "body": [
+      "def ${1:request_}():",
+      "    headers = {",
+      "        \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\",",
+      "        \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\",",
+      "        \"Cookie\": \"$2\",",
+      "    }",
+      "    data = {",
+      "        \"${3:key}\": f\"${4:value}\"",
+      "    }",
+      "    files = {",
+      "        #                (FILE_NAME, FILE_CONTENTS, FILE_MIMETYPE)",
+      "        \"uploaded_file\": (\"phpinfo.php\", b\"<?php phpinfo() ?>\", \"application/x-httpd-php\")",
+      "    }",
+      "    try:",
+      "        # use data for x-www-form-urlencoded, json=data for application/json",
+      "        response = session.post(${6:url}, headers=headers, data=data, json=data, proxies=proxy, verify=False, timeout=10)",
+      "        print(f\"${1:request_} Response Status Code: {response.status_code}\")",
+      "        $0",
+      "        return ${7:response}",
+      "    except requests.RequestException as e:",
+      "        print(f\"${1:request_} request get error: {e}\")",
+      "    ",
+      "    return None",
+      ""
+    ],
+    "description": "requests Session post request"
   }
 }
