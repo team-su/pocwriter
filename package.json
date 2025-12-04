@@ -15,7 +15,13 @@
   "categories": [
     "Snippets"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:python",
+    "onLanguage:c",
+    "onLanguage:csharp",
+    "onLanguage:javascript",
+    "onLanguage:powershell"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "snippets": [
