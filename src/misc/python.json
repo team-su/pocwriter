@@ -88,11 +88,11 @@
   },
   "[pocwriter] print debug to stderr": {
     "prefix": [
-      "def debug_print(**args, **kwargs):",
+      "def debug_print(*args, **kwargs):",
       "print_stderr"
     ],
     "body": [
-      "def debug_print(**args, **kwargs):",
+      "def debug_print(*args, **kwargs):",
       "    import sys",
       "    kwargs.setdefault('file', sys.stderr)",
       "    print(*args, **kwargs)",
