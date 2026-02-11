@@ -36,8 +36,8 @@
       "        \"uploaded_file\": (\"phpinfo.php\", b\"<?php phpinfo() ?>\", \"application/x-httpd-php\")",
       "    }",
       "    try:",
-      "        # use data for x-www-form-urlencoded, json=data for application/json",
-      "        response = session.post(${6:url}, headers=headers, data=data, json=data, proxies=proxy, verify=False, timeout=10)",
+      "        # use data=data for x-www-form-urlencoded, or json=data for application/json",
+      "        response = session.post(${6:url}, headers=headers, data=data, proxies=proxy, verify=False, timeout=10)",
       "        print(f\"${1:request_} Response Status Code: {response.status_code}\")",
       "        $0",
       "        return ${7:response}",
@@ -70,7 +70,7 @@
       "        \"${3:key}\": f\"${4:value}\"",
       "    }",
       "    try:",
-      "        # use data for x-www-form-urlencoded, json=data for application/json",
+      "        # use params for query string",
       "        response = session.get(${6:url}, headers=headers, params=params, proxies=proxy, verify=False, timeout=10)",
       "        print(f\"${1:request_} Response Status Code: {response.status_code}\")",
       "        $0",
@@ -147,8 +147,8 @@
       "        \"uploaded_file\": (\"phpinfo.php\", b\"<?php phpinfo() ?>\", \"application/x-httpd-php\")",
       "    }",
       "    try:",
-      "        # use data for x-www-form-urlencoded, json=data for application/json",
-      "        response = session.post(${6:url}, headers=headers, data=data, json=data, verify=False, timeout=10)",
+      "        # use data=data for x-www-form-urlencoded, or json=data for application/json",
+      "        response = session.post(${6:url}, headers=headers, data=data, verify=False, timeout=10)",
       "        print(f\"${1:request_} Response Status Code: {response.status_code}\")",
       "        $0",
       "        return ${7:response}",
@@ -159,5 +159,34 @@
       ""
     ],
     "description": "requests Session post request"
+  },
+  "[pocwriter] requests retry session": {
+    "scope": "python",
+    "prefix": [
+      "Retry(",
+      "requests retry"
+    ],
+    "body": [
+      "from requests import Session",
+      "from requests.adapters import HTTPAdapter",
+      "from urllib3.util.retry import Retry",
+      "",
+      "def ${1:build_retry_session}(retries: int = ${2:3}, backoff: float = ${3:0.2}) -> Session:",
+      "    retry = Retry(",
+      "        total=retries,",
+      "        backoff_factor=backoff,",
+      "        status_forcelist=[429, 500, 502, 503, 504],",
+      "        allowed_methods=[\"GET\", \"POST\", \"PUT\", \"DELETE\"]",
+      "    )",
+      "    session = Session()",
+      "    adapter = HTTPAdapter(max_retries=retry)",
+      "    session.mount(\"http://\", adapter)",
+      "    session.mount(\"https://\", adapter)",
+      "    return session",
+      "",
+      "session = ${1:build_retry_session}()",
+      "$0"
+    ],
+    "description": "requests Session with retry policy"
   }
 }

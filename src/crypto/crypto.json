@@ -41,6 +41,6 @@
       "        return d",
       "    return GCD(d, r)"
     ],
-    "description": "Compute the GCD of two polynomials"
+    "description": "Compute the GCD of two polynomials (requires Sage/Poly objects)"
   }
 }

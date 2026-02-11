@@ -42,6 +42,7 @@
       "",
       "def threading_pool_run():",
       "    results = []",
+      "    future_to_task = {}",
       "    with ThreadPoolExecutor(max_workers=$4) as executor:",
       "        for i in range($5):",
       "            future = executor.submit($1, $6)",

@@ -5,7 +5,7 @@
       "pow"
     ],
     "body": [
-      "$0 = pow($1, e, N)"
+      "${2:result} = pow(${1:base}, ${3:e}, ${4:N})"
     ],
     "description": "fast pow calculation"
   }

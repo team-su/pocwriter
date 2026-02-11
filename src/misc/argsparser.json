@@ -1,5 +1,5 @@
 {
-  "[pocwriter] python argsparser ": {
+  "[pocwriter] python argsparser": {
     "scope": "python",
     "prefix": [
       "import argparse",
@@ -19,6 +19,6 @@
       "    # use like args = parse_args()",
       ""
     ],
-    "description": "python main function template"
+    "description": "python argparse template"
   }
 }
